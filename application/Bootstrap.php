@@ -14,10 +14,7 @@ class Bootstrap{
 
             $controller = new $controller;
 
-            if(is_callable(array($controller, $method))){
-                $method = $request->getMethod();
-            }
-            else{
+            if(!is_callable(array($controller, $method))){
                 $method = 'index';
             }
 
