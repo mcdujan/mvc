@@ -2,4 +2,9 @@
 
 Desarrollo de un framework PHP usando el patrón de desarrollo MVC
 
+## Objetivo
+
+## Metodología
+
 ## Participantes
+
