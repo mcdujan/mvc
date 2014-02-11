@@ -12,6 +12,8 @@ El objetivo de esta práctica es crear un framework usando PHP y utilizando el p
 - Usaremos git y github para llevar el control de versiones y poder compartir el código.
 - Hemos decidio usar los nombres de las variables, clases, propiedades, métodos, etc en inglés.
 
+## Configuración
+
 ## Participantes
 
 - Marta Agut
