@@ -14,6 +14,7 @@ require_once APP_PATH . 'Controller.php';
 require_once APP_PATH . 'Model.php';
 require_once APP_PATH . 'View.php';
 require_once APP_PATH . 'Registration.php';
+require_once APP_PATH . 'Database.php';
 
 try{
     Bootstrap::run(new Request);
