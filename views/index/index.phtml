@@ -2,4 +2,32 @@
 
 <p>Aquí hay que poner la tabla con los contactos.</p>
 
-<pre><?php print_r($this->posts)?></pre>
+<?php if(isset($this->posts)  && count($this->posts)): ?>
+
+<table border =1>
+
+    <tr>
+        <td>Id</td>
+        <td>Dni</td>
+        <td>Nombre</td>
+        <td>Apellidos</td>
+    </tr>
+
+    <?php for($i=0; $i < count($this->posts); $i++): ?>
+
+    <tr>
+        <td><?php echo $this->posts[$i]['id']?></td>
+        <td><?php echo $this->posts[$i]['dni']?></td>
+        <td><?php echo $this->posts[$i]['nombre']?></td>
+        <td><?php echo $this->posts[$i]['apellidos']?></td>
+    </tr>
+
+    <?php endfor; ?>
+
+</table>
+
+<?php else: ?>
+
+    <p><strong>No hay datos en la base de datos</strong></p>
+
+<?php endif; ?>
