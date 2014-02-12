@@ -25,7 +25,6 @@ abstract class Controller {
     }
 
     protected function redirect($path = false) {
-        
         if($path) {
             header('Location: ' . BASE_URL . $path);
             exit;

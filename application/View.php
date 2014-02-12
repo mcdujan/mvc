@@ -9,7 +9,6 @@ class View {
     }
 
     public function render($view, $item = false) {
-
         $layoutParams = array(
             'css_path' => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/css',
             'img_path' => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/img',
