@@ -34,3 +34,13 @@ h3{
     text-align: center;
     text-transform: uppercase;
 }
+
+footer {
+    margin-top: 15px;
+    border-top: 1px solid white;
+    text-align: center;
+}
+
+footer p {
+    padding: 0;
+}
