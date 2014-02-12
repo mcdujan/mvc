@@ -16,7 +16,7 @@ class userController extends Controller {
     }
 
     public function view($userid) {
-        $this->_view->user = $this->_user->getUserById($userid);
+        $this->_view->user  = $this->_user->getUserById($userid);
         $this->_view->title = "Vista del usuario";
         $this->_view->render('view');
     }
@@ -26,6 +26,10 @@ class userController extends Controller {
     }
 
     public function edit($userid) {
+
+        if(empty($userid)) {
+            $this->redirect('user');
+        }
         // OJO con esto, que hay que seguir varios pasos antes de llamar al edit
         // Voy a hacer unas pruebas
         if (!empty($_POST) && $_POST['submit'] === 'Editar') {
@@ -37,7 +41,7 @@ class userController extends Controller {
         else {
             // Entonces cargamos datos de la base de datos
             $this->_view->user  = $this->_user->getUserById($userid);
-            $this->_view->title = "Vista de edición";
+            $this->_view->title = "Editar usuario";
             $this->_view->render('edit');
         }
     }
