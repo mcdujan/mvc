@@ -34,6 +34,6 @@ class userController extends Controller {
 
         $this->_view->users = $user->deleteUser($userid);
         //Retornamos al index
-        $this->index();
+        $this->redirect('user');
     }
 }

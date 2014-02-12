@@ -23,4 +23,13 @@ abstract class Controller {
             throw new Exception("Error de Modelo");
         }
     }
+
+    protected function redirect($path = false) {
+        
+        if($path) {
+            header('Location: ' . BASE_URL . $path);
+            exit;
+        }
+        header('Location:' . BASE_URL);
+    }
 }
