@@ -1,0 +1,22 @@
+<?php if(isset($this->product)  && count($this->product)): ?>
+
+<form id="formulario" action="<?php echo BASE_URL . 'product/edit/' . $this->product['id']; ?>" method="post">
+    <h3>EDITAR REGISTRO DE PRODUCTO Nº: <?php echo $this->product['id']?></h3>
+    <fieldset>
+        <legend>Producto</legend>
+        <input type="hidden" name="id" value="<?php echo $this->product['id']?>">
+        <b>Nombre:</b>
+        <input type="text" name="nombre" value="<?php echo $this->product['nombre']?>" maxlength="20" size="25"/>
+        <br />
+        <b>Precio:</b>
+        <input type="text" name="precio" value="<?php echo $this->product['precio']?>" maxlength="20" size="25"/>
+        <br />
+        <input type="submit" name="submit" value="Editar">
+    </fieldset>
+</form>
+<?php else: ?>
+    <p>No hay datos en la base de datos</p>
+    <p>Por favor, revisa que la id del usuario sea correcta</p>
+<?php endif; ?>
+
+<p><a href="<?php echo BASE_URL . 'user' ?>">&lt;&lt; Volver a la lista de usuarios</a></p>

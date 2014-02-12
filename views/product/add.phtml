@@ -1,0 +1,16 @@
+
+<form id="formulario" action="<?php echo BASE_URL . 'product/add' ?>" method="post">
+    <h3>NUEVO USUARIO</h3>
+    <fieldset>
+        <legend>Producto</legend>
+        <b>Nombre:</b>
+        <input type="text" name="nombre" value="" maxlength="20" size="25"/>
+        <br />
+        <b>Precio:</b>
+        <input type="text" name="precio" value="" maxlength="20" size="25"/>
+        <br />
+        <input type="submit" name="submit" value="Nuevo Producto">
+    </fieldset>
+</form>
+
+<p><a href="<?php echo BASE_URL . 'product' ?>">&lt;&lt; Volver a la lista de productos</a></p>

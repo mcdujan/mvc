@@ -1,0 +1,27 @@
+<?php if(isset($this->product)  && count($this->product)): ?>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th colspan="2">Operaciones</th>
+    </tr>
+    <tr id="cuerpo">
+        <td><?php echo $this->product['id']?></td>
+        <td><?php echo $this->product['nombre']?></td>
+        <td><?php echo $this->product['precio']?></td>
+        <td>
+            <a href="<?php echo BASE_URL . 'product/edit/' . $this->product['id']; ?>">Editar</a>
+        </td>
+        <td>
+            <a href="<?php echo BASE_URL . 'product/delete/' . $this->product['id']; ?>">Eliminar</a>
+        </td>
+    </tr>
+
+</table>
+<?php else: ?>
+    <p><strong>No hay datos en la base de datos</strong></p>
+<?php endif; ?>
+
+<p><a href="<?php echo BASE_URL . 'product' ?>">&lt;&lt; Volver a la lista de productos</a></p>
