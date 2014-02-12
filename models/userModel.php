@@ -11,15 +11,18 @@ class userModel extends Model {
     }
 
     public function getUserById($id) {
-        $user = $this->_db->prepare("SELECT * FROM usuarios WHERE id=?");
+        $user = $this->_db->prepare("SELECT * FROM usuarios WHERE id = ?");
         $user->bindParam(1, $id, PDO::PARAM_INT);
         $user->execute();
         return array_shift($user->fetchall());
     }
 
     public function addUser() {
-        $user = $this->_db->prepare("INSERT INTO usuarios (dni, nombre, apellidos) 
-                                    VALUES (:dni, :nombre, :apellidos)");
+        $user = $this->_db->prepare("INSERT INTO 
+                                    usuarios (dni, nombre, apellidos) 
+                                    VALUES 
+                                    (:dni, :nombre, :apellidos)");
+
         $datos = filter_input_array(INPUT_POST, $_POST);
         $user->bindParam(':dni', $datos['dni'], PDO::PARAM_STR);
         $user->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
