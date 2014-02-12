@@ -26,6 +26,11 @@ class userController extends Controller {
     }
 
     public function edit($userid) {
+        $user = $this->loadModel('user');
+
+        $this->_view->users = $user->editUser($userid);
+        $this->_view->title = "Vista de edición";
+        $this->_view->render('edit');
 
     }
 
