@@ -3,7 +3,29 @@ body {
     background: transparent url('../img/fondo.jpeg') repeat;
 }
 
+a, a:visited {
+    color:blue;
+}
+
 #main {
     width: 980px;
     margin: 0 auto;
+}
+
+table {
+    width: 980px;
+    text-align: center;
+    background: black
+}
+td {
+    padding: 5px
+}
+
+th {
+    padding: 15px;
+    background: green
+}
+
+tr#cuerpo:nth-child(2n) {
+    background: gray
 }
