@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `dni`, `nombre`, `apellidos`) VALUES
-(1, '71277632b', 'Roberto', 'Burgos Martin'),
+(1, '4645432b', 'Roberto', 'Burgos Martin'),
 (2, 'dfasdfa', 'adfasdf', 'asdfasdfasf'),
 (3, '123123', 'Pepito', 'Grillo');
 
