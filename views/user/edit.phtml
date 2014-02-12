@@ -1,14 +1,17 @@
 <?php if(isset($this->user)  && count($this->user)): ?>
 
-<form id="formulario" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+<form id="formulario" action="<?php echo BASE_URL . 'user/edit/' . $this->user['id']; ?>" method="post">
     <h3 align="center">EDITAR REGISTRO Nº: <?php echo $this->user['id']?></h3>
     <fieldset>
-        <legend>Usuarios</legend>
-        <b>ID:</b><input disabled="disabled" type="text" name="id" value="<?php echo $this->user['id']?>">
-        <input type="hidden" name="id2" value="<?php echo $this->user['id']?>"><br />
+        <legend>Usuario</legend>
+        <input type="hidden" name="id" value="<?php echo $this->user['id']?>">
         <b>Dni:</b> <input type="text" name="dni" value="<?php echo $this->user['dni']?>" maxlength="20" size="25"/>
+        <br />
         <b>Nombre:</b> <input type="text" name="nombre" value="<?php echo $this->user['nombre']?>" maxlength="20" size="25"/>
+        <br />
         <b>Apellidos:</b> <input type="text" name="apellidos" value="<?php echo $this->user['apellidos']?>" maxlength="35" size="40"/>
+        <br />
+        <input type="submit" name="submit" value="Editar">
     </fieldset>
 </form>
 
