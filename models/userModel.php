@@ -23,4 +23,8 @@ class userModel extends Model {
         return array_shift($user->fetchall());
 
     }
+
+    public function deleteUser($id){
+        $user =$this->_db->query("DELETE FROM usuarios WHERE id=?");
+    }
 }

@@ -30,6 +30,10 @@ class userController extends Controller {
     }
 
     public function delete($userid) {
+        $user = $this->loadModel('user');
 
+        $this->_view->users = $user->deleteUser();
+        $this->_view->title = "Lista de usuarios";
+        $this->_view->render('index');
     }
 }
