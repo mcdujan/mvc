@@ -8,6 +8,10 @@ class indexController extends Controller{
 
     public function index(){
 
+        $post = $this->loadModel('post');
+
+        $this->_view->posts = $post->getPosts();
+
         $this->_view->render('index');
 
     }
