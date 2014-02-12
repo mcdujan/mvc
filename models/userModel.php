@@ -15,7 +15,6 @@ class userModel extends Model {
         $user->bindParam(1, $id, PDO::PARAM_INT);
         $user->execute();
         return array_shift($user->fetchall());
-
     }
 
     public function addUser() {
@@ -29,7 +28,6 @@ class userModel extends Model {
     }
 
     public function editUser($id){
-        // Hay que pasarle los valores, porque ahora mismo esas variables no existen
         $user = $this->_db->prepare("UPDATE usuarios SET
                                     dni       = ?, 
                                     nombre    = ?,
