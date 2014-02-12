@@ -7,6 +7,7 @@
         <td>Dni</td>
         <td>Nombre</td>
         <td>Apellidos</td>
+        <td colspan="3">Operaciones</td>
     </tr>
 
 <?php foreach ($this->users as $user): ?>
@@ -15,6 +16,15 @@
         <td><?php echo $user['dni']?></td>
         <td><?php echo $user['nombre']?></td>
         <td><?php echo $user['apellidos']?></td>
+        <td>
+            <a href="<?php echo BASE_URL . 'user/view/' . $user['id']; ?>">Ver</a>
+        </td>
+        <td>
+            <a href="<?php echo BASE_URL . 'user/edit/' . $user['id']; ?>">Editar</a>
+        </td>
+        <td>
+            <a href="<?php echo BASE_URL . 'user/delete/' . $user['id']; ?>">Eliminar</a>
+        </td>
     </tr>
 <?php endforeach; ?>
 
