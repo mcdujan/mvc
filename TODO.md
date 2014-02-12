@@ -8,4 +8,6 @@
 - [x] Crear el boostrap y el request
 - [x] Crear base de las vistas
 - [x] Rellenar el apartado de configuraciones del README
-- [ ] Métodos para editar y añadir nuevos usuarios
+- [x] Métodos para editar y añadir nuevos usuarios
+- [x] Crear Controlador, Modelo y Vista de producto
+- [ ] Completar el elemento producto
