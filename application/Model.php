@@ -1,13 +1,10 @@
 <?php
 
-class Model{
+class Model {
 
     protected $_db;
 
-    public function __construct(){
+    public function __construct() {
         $this->_db = new Database();
     }
-
 }
-
-?>
