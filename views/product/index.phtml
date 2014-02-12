@@ -1,1 +1,37 @@
-index.phtml
+<?php if(isset($this->product)  && count($this->product)): ?>
+
+<table border="1">
+
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th colspan="3">Operaciones</th>
+    </tr>
+
+<?php foreach ($this->product as $product): ?>
+    <tr id="cuerpo">
+        <td><?php echo $product['id']?></td>
+        <td><?php echo $product['nombre']?></td>
+        <td><?php echo $product['precio']?></td>
+        <td>
+            <a href="<?php echo BASE_URL . 'product/view/' . $product['id']; ?>">Ver</a>
+        </td>
+        <td>
+            <a href="<?php echo BASE_URL . 'product/edit/' . $product['id']; ?>">Editar</a>
+        </td>
+        <td>
+            <a href="<?php echo BASE_URL . 'product/delete/' . $product['id']; ?>">Eliminar</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+    <tr>
+        <td colspan="7"><a href="<?php echo BASE_URL . 'product/add' ?>">Añadir nuevo Producto</a></td>
+    </tr>
+</table>
+
+<?php else: ?>
+
+    <p><strong>No hay datos en la base de datos</strong></p>
+
+<?php endif; ?>
