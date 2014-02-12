@@ -25,6 +25,8 @@ class userModel extends Model {
     }
 
     public function deleteUser($id){
-        $user =$this->_db->query("DELETE FROM usuarios WHERE id=?");
+        $user = $this->_db->prepare("DELETE FROM usuarios WHERE id=?");
+        $user->bindParam(1, $id, PDO::PARAM_INT);
+        $user->execute();
     }
 }
