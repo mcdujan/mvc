@@ -1,0 +1,24 @@
+<?php if(isset($this->user)  && count($this->user)): ?>
+
+<table border="1">
+
+    <tr>
+        <td>Id</td>
+        <td>Dni</td>
+        <td>Nombre</td>
+        <td>Apellidos</td>
+    </tr>
+    <tr>
+        <td><?php echo $this->user['id']?></td>
+        <td><?php echo $this->user['dni']?></td>
+        <td><?php echo $this->user['nombre']?></td>
+        <td><?php echo $this->user['apellidos']?></td>
+    </tr>
+
+</table>
+
+<?php else: ?>
+
+    <p><strong>No hay datos en la base de datos</strong></p>
+
+<?php endif; ?>

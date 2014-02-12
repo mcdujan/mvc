@@ -2,3 +2,8 @@ body {
     color: white;
     background: transparent url('../img/fondo.jpeg') repeat;
 }
+
+#main {
+    width: 980px;
+    margin: 0 auto;
+}
