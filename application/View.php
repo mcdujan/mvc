@@ -9,10 +9,29 @@ class View {
     }
 
     public function render($view, $item = false) {
+        $menu = array(
+            array(
+                'id' => 'inicio',
+                'title' => 'Inicio',
+                'url' => BASE_URL
+                ),
+            array(
+                'id' => 'usuarios',
+                'title' => 'Usuarios',
+                'url' => BASE_URL . 'user/'
+                ),
+            array(
+                'id' => 'productos',
+                'title' => 'Productos',
+                'url' => BASE_URL . 'product/'
+                ),
+            );
+
         $layoutParams = array(
             'css_path' => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/css',
             'img_path' => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/img',
-            'js_path'  => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/js');
+            'js_path'  => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/js',
+            'menu'     => $menu);
 
         $pathView = ROOT . 'views' . DS . $this->_controller . DS . $view . '.phtml';
 

@@ -13,6 +13,25 @@ a, a:visited {
     margin: 0 auto;
 }
 
+#top_menu{
+    width: 410px;
+    text-transform: uppercase;
+    background: white;
+    padding: 1px;
+    font-weight: bold;
+}
+
+#top_menu li{
+    display: inline;
+}
+
+#top_menu a{
+    padding: 3px 15px;
+    margin: 0 3px 0 0; 
+    text-decoration: none;
+    background: inherit;
+}
+
 table{
     width: 980px;
     text-align: center;
