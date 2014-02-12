@@ -18,6 +18,10 @@ class userModel extends Model {
 
     }
 
+    public function addUser() {
+        
+    }
+
     public function editUser($id){
         // Hay que pasarle los valores, porque ahora mismo esas variables no existen
         $user = $this->_db->prepare("UPDATE usuarios SET
