@@ -7,4 +7,5 @@
 - [x] Crear el boostrap y el request
 - [x] Crear base de datos
 - [x] Crear base de las vistas
-- [ ] Rellenar el apartado de configuraciones del README 
+- [x] Rellenar el apartado de configuraciones del README
+- [ ] Métodos para editar y añadir nuevos usuarios
