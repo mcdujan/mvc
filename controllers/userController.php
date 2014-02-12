@@ -22,7 +22,7 @@ class userController extends Controller {
 
         $this->_view->user = $user->getUserById($userid);
         $this->_view->title = "Vista del usuario";
-        $this->_view->render('user');
+        $this->_view->render('view');
     }
 
     public function edit($userid) {
@@ -30,6 +30,6 @@ class userController extends Controller {
     }
 
     public function delete($userid) {
-        
+
     }
 }
