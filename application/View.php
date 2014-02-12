@@ -13,7 +13,7 @@ class View {
         $layoutParams = array(
             'css_path' => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/css',
             'img_path' => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/img',
-            'js_path' => BASE_URL  . 'views/layout/' . DEFAULT_LAYOUT . '/js');
+            'js_path'  => BASE_URL . 'views/layout/' . DEFAULT_LAYOUT . '/js');
 
         $pathView = ROOT . 'views' . DS . $this->_controller . DS . $view . '.phtml';
 
