@@ -22,7 +22,9 @@ class userController extends Controller {
     }
 
     public function add() {
-
+            $this->_view->users = $this->_user->addUser();
+            $this->_view->title = "Añadir nuevo usuario";
+            $this->_view->render('add');
     }
 
     public function edit($userid) {

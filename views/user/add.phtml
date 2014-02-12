@@ -1,0 +1,22 @@
+
+
+<form id="formulario" action="<?php echo BASE_URL . 'user/add/' ?>" method="post">
+    <h3 align="center">NUEVO USUARIO</h3>
+    <fieldset>
+        <legend>Usuario</legend>
+        <input type="hidden" name="id" value="">
+        <b>Dni:</b>
+        <input type="text" name="dni" value="" maxlength="20" size="25"/>
+        <br />
+        <b>Nombre:</b>
+        <input type="text" name="nombre" value="" maxlength="20" size="25"/>
+        <br />
+        <b>Apellidos:</b>
+        <input type="text" name="apellidos" value="" maxlength="35" size="40"/>
+        <br />
+        <input type="submit" name="submit" value="Nuevo Usuario">
+    </fieldset>
+</form>
+
+
+<p><a href="<?php echo BASE_URL . 'user' ?>">&lt;&lt; Volver a la lista de usuarios</a></p>

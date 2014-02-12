@@ -19,7 +19,15 @@ class userModel extends Model {
     }
 
     public function addUser() {
-        
+        $user = $this->_db->prepare("INSERT INTO usuarios (dni, nombre, apellidos) 
+                                    values (?, ?, ?)");
+        $datos = filter_input_array(INPUT_POST, $_POST);
+
+        $user->bindParam(1, $datos['dni'], PDO::PARAM_STR);
+        $user->bindParam(2, $datos['nombre'], PDO::PARAM_STR);
+        $user->bindParam(3, $datos['apellidos'], PDO::PARAM_STR);
+        $user->execute();
+
     }
 
     public function editUser($id){
