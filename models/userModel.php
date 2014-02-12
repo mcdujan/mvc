@@ -11,8 +11,9 @@ class userModel extends Model {
     }
 
     public function getUserById($id) {
-        // Preparar el statement usando bien PDO
-        $user = $this->_db->query("SELECT * FROM usuarios WHERE id=$id");
+        $user = $this->_db->prepare("SELECT * FROM usuarios WHERE id=?");
+        $user->bindParam(1, $id, PDO::PARAM_INT);
+        $user->execute();
         return array_shift($user->fetchall());
     }
 }
