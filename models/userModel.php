@@ -13,6 +13,7 @@ class userModel extends Model {
     public function getUserById($id) {
         // Preparar el statement usando bien PDO
         $user = $this->_db->query("SELECT * FROM usuarios WHERE id=$id");
-        return array_shift($user->fetchall());
+        $user = array_shift($user->fetchall());
+        return $user;
     }
 }
