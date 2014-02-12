@@ -22,9 +22,16 @@ class userController extends Controller {
     }
 
     public function add() {
-            $this->_view->users = $this->_user->addUser();
-            $this->_view->title = "Añadir nuevo usuario";
+        if (!empty($_POST) && $_POST['submit'] === 'Nuevo Usuario') {
+            // Entonces añadimos usuario
+            $this->_user->addUser();
+            $this->redirect('user');
+        }
+        else {
+            //Sino mostramos formulario
+            $this->_view->title = "Nuevo usuario";
             $this->_view->render('add');
+        }
     }
 
     public function edit($userid) {

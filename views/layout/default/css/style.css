@@ -29,3 +29,8 @@ th {
 tr#cuerpo:nth-child(2n) {
     background: gray
 }
+
+h3{
+    text-align: center;
+    text-transform: uppercase;
+}

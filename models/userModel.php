@@ -27,7 +27,6 @@ class userModel extends Model {
         $user->bindParam(2, $datos['nombre'], PDO::PARAM_STR);
         $user->bindParam(3, $datos['apellidos'], PDO::PARAM_STR);
         $user->execute();
-
     }
 
     public function editUser($id){
