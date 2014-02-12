@@ -35,8 +35,8 @@ class userController extends Controller {
         if (!empty($_POST) && $_POST['submit'] === 'Editar') {
             // Entonces editamos
             // Hay que preparar los valores para pasar al modelo
-            // $this->_user->editUser($userid);
-            print_r($_POST);
+            $this->_user->editUser($userid);
+            $this->redirect('user/view/'.$userid);
         }
         else {
             // Entonces cargamos datos de la base de datos

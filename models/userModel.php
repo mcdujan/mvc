@@ -20,11 +20,18 @@ class userModel extends Model {
 
     public function editUser($id){
         // Hay que pasarle los valores, porque ahora mismo esas variables no existen
-        $user = $this->_db->prepare("UPDATE usuarios SET dni = '$dni', 
-                                        nombre = '$nombre',
-                                        apellidos = '$apellidos'
-                                        WHERE id=?");
-        $user->bindParam(1, $id, PDO::PARAM_INT);
+        $user = $this->_db->prepare("UPDATE usuarios SET
+                                    dni       = ?, 
+                                    nombre    = ?,
+                                    apellidos = ?
+                                    WHERE id  = ?");
+        
+        $datos = filter_input_array(INPUT_POST, $_POST);
+
+        $user->bindParam(1, $datos['dni'], PDO::PARAM_STR);
+        $user->bindParam(2, $datos['nombre'], PDO::PARAM_STR);
+        $user->bindParam(3, $datos['apellidos'], PDO::PARAM_STR);
+        $user->bindParam(4, $id, PDO::PARAM_INT);
         $user->execute();
     }
 
