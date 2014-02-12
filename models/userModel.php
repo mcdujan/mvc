@@ -24,6 +24,15 @@ class userModel extends Model {
 
     }
 
+    public function editUser($id){
+        $user = $this->_db->prepare("UPDATE usuarios SET dni = '$dni', 
+                                        nombre = '$nombre',
+                                        apellidos = '$apellidos'
+                                        WHERE id=?");
+        $user->bindParam(1, $id, PDO::PARAM_INT);
+        $user->execute();
+    }
+
     public function deleteUser($id){
         $user = $this->_db->prepare("DELETE FROM usuarios WHERE id=?");
         $user->bindParam(1, $id, PDO::PARAM_INT);
