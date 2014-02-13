@@ -4,6 +4,6 @@
 
 # netbeans specific
 core
-nbproject/*
+/nbproject/*
 !nbproject/project.properties
 !nbproject/project.xml
