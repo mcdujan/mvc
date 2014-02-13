@@ -21,5 +21,5 @@ defined ('BASE_URL')            ? null : define('BASE_URL', 'http://localhost/fr
 
 
 // Definición de elementos por defecto
-defined ('DEFAULT_CONTROLLER')  ? null : define('DEFAULT_CONTROLLER', 'user');
+defined ('DEFAULT_CONTROLLER')  ? null : define('DEFAULT_CONTROLLER', 'index');
 defined ('DEFAULT_LAYOUT')      ? null : define('DEFAULT_LAYOUT', 'default');
