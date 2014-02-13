@@ -1,11 +1,11 @@
 <?php if(isset($this->users)  && count($this->users)): ?>
-
 <table>
     <tr>
         <th>Id</th>
         <th>Dni</th>
         <th>Nombre</th>
         <th>Apellidos</th>
+        <th>Pedidos</th>
         <th colspan="3">Operaciones</th>
     </tr>
 <?php foreach ($this->users as $user): ?>
@@ -14,6 +14,12 @@
         <td><?php echo $user['dni']?></td>
         <td><?php echo $user['nombre']?></td>
         <td><?php echo $user['apellidos']?></td>
+        <td><?php if (in_array($user['id'], $this->userOrder)) :  ?>
+            <a href="<?php echo BASE_URL . 'order/userorders/' . $user['id']; ?>">Ver</a>
+            <?php else :?>
+                No hay pedidos
+            <?php endif; ?>
+        </td>
         <td>
             <a href="<?php echo BASE_URL . 'user/view/' . $user['id']; ?>">Ver</a>
         </td>

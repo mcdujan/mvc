@@ -59,4 +59,15 @@ class userModel extends Model {
                                   LIMIT 3"); 
         return $user->fetchall();
     }
+
+    public function getOrders() {
+        $user = $this->_db->query("SELECT usuarios.id
+                                    FROM usuarios, pedidos
+                                    WHERE usuarios.id = pedidos.id_usuario");
+        $userOrders = array();
+        foreach ($user->fetchall(PDO::FETCH_ASSOC) as $key => $value) {
+            array_push($userOrders, $value['id']);
+        }
+        return $userOrders;
+    }
 }

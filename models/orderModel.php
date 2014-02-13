@@ -20,8 +20,9 @@ class orderModel extends Model {
                 
                 FROM    pedidos, pedidos_productos, productos, usuarios
                 WHERE   pedidos_productos.id_pedido = ?
+                AND     pedidos.id = ?
                 AND     pedidos_productos.id_producto = productos.id
-                AND     usuarios.id = ?"
+                AND     usuarios.id = pedidos.id_usuario"
                 );
         $order->bindParam(1, $id, PDO::PARAM_INT);
         $order->bindParam(2, $id, PDO::PARAM_INT);
@@ -29,11 +30,21 @@ class orderModel extends Model {
         return $order->fetchall(PDO::FETCH_ASSOC);
     }
 
+    public function getOrdersByUser($userid) {
+        $order = $this->_db->prepare("SELECT usuarios.id as usuario_id, nombre, pedidos.id, referencia 
+                                     FROM pedidos, usuarios 
+                                     WHERE id_usuario = usuarios.id 
+                                     AND usuarios.id = ?");
+        $order->bindParam(1, $userid, PDO::PARAM_INT);
+        $order->execute();
+        return $order->fetchall(PDO::FETCH_ASSOC);
+    }
+
     public function getLastOrders() {
-        $user = $this->_db->query("SELECT *
+        $order = $this->_db->query("SELECT *
                                   FROM pedidos
                                   ORDER BY id DESC
                                   LIMIT 3"); 
-        return $user->fetchall(PDO::FETCH_ASSOC);
+        return $order->fetchall(PDO::FETCH_ASSOC);
     }
 }

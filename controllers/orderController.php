@@ -19,4 +19,10 @@ class orderController extends Controller {
         $this->_view->title = "Vista del usuario";
         $this->_view->render('view');
     }
+
+    public function userorders($userid) {
+        $this->_view->orders = $this->_order->getOrdersByUser($userid);
+        $this->_view->title = "Pedidos de usuario";
+        $this->_view->render('userorders');
+    }
 }
