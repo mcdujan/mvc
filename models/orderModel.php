@@ -12,14 +12,17 @@ class orderModel extends Model {
 
     public function getOrderById($id) {
         $order = $this->_db->prepare(
-               "SELECT pedidos.id, pedidos.referencia, productos.nombre, productos.precio, usuarios.nombre as usuario, usuarios.id as usuario_id,
-               pedidos_productos.cantidad, 
-               (pedidos_productos.cantidad * productos.precio) AS precio_total
-                FROM pedidos, pedidos_productos, productos, usuarios
-                WHERE pedidos_productos.id_pedido = ?
-                AND pedidos_productos.id_producto = productos.id
-                AND usuarios.id = ?"
-            );
+               "SELECT 
+                pedidos.id, pedidos.referencia, pedidos_productos.cantidad,
+                usuarios.nombre as usuario, usuarios.id as usuario_id,
+                productos.nombre, productos.precio,
+                (pedidos_productos.cantidad * productos.precio) AS precio_total
+                
+                FROM    pedidos, pedidos_productos, productos, usuarios
+                WHERE   pedidos_productos.id_pedido = ?
+                AND     pedidos_productos.id_producto = productos.id
+                AND     usuarios.id = ?"
+                );
         $order->bindParam(1, $id, PDO::PARAM_INT);
         $order->bindParam(2, $id, PDO::PARAM_INT);
         $order->execute();
