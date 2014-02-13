@@ -1,7 +1,10 @@
 <?php if(isset($this->order)  && count($this->order)): ?>
 <table>
+
     <tr>
-        <th colspan="2">Referencia <?php echo $this->order[0]['referencia'] ?></th>
+        <th>
+            <a href="<?php echo BASE_URL ?>user/view/<?php echo $this->order[0]['usuario_id'] ?>">Cliente: <?php  echo $this->order[0]['usuario']?></a></th>
+        <th>Referencia: <?php echo $this->order[0]['referencia'] ?></th>
         <td>
             <a href="<?php echo BASE_URL . 'order/edit/' . $this->order['id']; ?>">Editar</a>
         </td>
@@ -9,21 +12,33 @@
             <a href="<?php echo BASE_URL . 'order/delete/' . $this->order['id']; ?>">Eliminar</a>
         </td>
     </tr>
+    <tr>&nbsp;</tr>
+    <tr>&nbsp;</tr>
+    <tr>&nbsp;</tr>
     <tr>
         <th>Producto</th>
         <th>Cantidad</th>
         <th>Precio Unidad</th>
         <th>Precio Total</th>
     </tr>
-            <?php foreach ($this->order as $order): ?>
+    <?php
+        $total = 0;
+        foreach ($this->order as $order):
+    ?>
     <tr id="cuerpo">
-
+        <?php $total += $order['precio_total'];?>
         <td><?php echo $order['nombre']?></td>  
         <td><?php echo $order['cantidad']?></td>  
         <td><?php echo $order['precio']?></td>  
         <td><?php echo $order['precio_total']?></td>  
     </tr>
+
 <?php endforeach; ?>
+    <tr>
+        <td colspan="2">&nbsp;</td>
+        <th>TOTAL</th>
+        <td><?php echo $total ?></td>
+    </tr>
 </table>
 <?php else: ?>
     <p><strong>No hay datos en la base de datos</strong></p>
