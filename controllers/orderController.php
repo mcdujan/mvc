@@ -20,6 +20,22 @@ class orderController extends Controller {
         $this->_view->render('view');
     }
 
+    public function add() {
+        if (!empty($_POST) && $_POST['submit'] === 'Nuevo Pedido') {
+            $this->_product->addProduct();
+            $this->redirect('order');
+        }
+        else {
+            $this->_user = $this->loadModel('user');
+            $this->_product = $this->loadModel('product');
+
+            $this->_view->users = $this->_user->getUsers();
+            $this->_view->products = $this->_product->getProducts();
+            $this->_view->title = "Nuevo pedido";
+            $this->_view->render('add');
+        }
+    }
+
     public function userorders($userid) {
         $this->_view->orders = $this->_order->getOrdersByUser($userid);
         $this->_view->title = "Pedidos de usuario";

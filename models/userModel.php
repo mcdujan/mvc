@@ -7,7 +7,7 @@ class userModel extends Model {
 
     public function getUsers(){
         $user = $this->_db->query('SELECT * FROM usuarios');
-        return $user->fetchall();
+        return $user->fetchall(PDO::FETCH_ASSOC);
     }
 
     public function getUserById($id) {

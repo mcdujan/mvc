@@ -1,0 +1,19 @@
+<pre>
+</pre>
+
+<form id="formulario" action="<?php echo BASE_URL . 'order/add' ?>" method="post">
+    <h3>NUEVO PEDIDO</h3>
+    <fieldset>
+        <legend>Pedido</legend>
+        <b>Usuario:</b>
+        <select name="usuario" form="formulario">
+            <?php foreach ($this->users as $user): ?>
+                <option value="<?php echo $user['id'] ?>"><?php echo $user['nombre'] ?></option>
+            <?php endforeach; ?>
+        </select>
+        <br />    
+        <input type="submit" name="submit" value="Nuevo Pedido">
+    </fieldset>
+</form>
+
+<p><a href="<?php echo BASE_URL . 'order' ?>">&lt;&lt; Volver a la lista de pedidos</a></p>
