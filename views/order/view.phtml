@@ -1,15 +1,14 @@
 <?php if(isset($this->order)  && count($this->order)): ?>
 <table>
-
     <tr>
         <th>
             <a href="<?php echo BASE_URL ?>user/view/<?php echo $this->order[0]['usuario_id'] ?>">Cliente: <?php  echo $this->order[0]['usuario']?></a></th>
         <th>Referencia: <?php echo $this->order[0]['referencia'] ?></th>
         <td>
-            <a href="<?php echo BASE_URL . 'order/edit/' . $this->order['id']; ?>">Editar</a>
+            <a href="<?php echo BASE_URL . 'order/edit/' . $this->order[0]['id']; ?>">Editar</a>
         </td>
         <td>
-            <a href="<?php echo BASE_URL . 'order/delete/' . $this->order['id']; ?>">Eliminar</a>
+            <a href="<?php echo BASE_URL . 'order/delete/' . $this->order[0]['id']; ?>">Eliminar</a>
         </td>
     </tr>
     <tr>&nbsp;</tr>
