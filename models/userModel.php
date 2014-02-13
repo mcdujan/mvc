@@ -51,4 +51,12 @@ class userModel extends Model {
         $user->bindParam(1, $id, PDO::PARAM_INT);
         $user->execute();
     }
+
+    public function getLastUsers() {
+        $user = $this->_db->query("SELECT id, nombre
+                                  FROM usuarios
+                                  ORDER BY id DESC
+                                  LIMIT 3"); 
+        return $user->fetchall();
+    }
 }

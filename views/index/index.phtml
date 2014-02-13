@@ -1,3 +1,14 @@
-<h3>Vista Index</h3>
+<?php if(isset($this->users)  && count($this->users)): ?>
 
+<div>
+    <p>Últimos usuarios registrados</p>
+    <ul>
+    <?php foreach ($this->users as $user): ?>
+        <li><a href="user/view/<?php echo $user['id']; ?>"><?php echo $user['nombre']; ?></a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>
 
+<?php else: ?>
+    <p><strong>No hay datos en la base de datos</strong></p>
+<?php endif; ?>
