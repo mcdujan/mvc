@@ -1,10 +1,20 @@
-<?php if(isset($this->users)  && count($this->users)): ?>
+<?php if(isset($this->users)  && count($this->users) &&
+         isset($this->orders)  && count($this->orders)): ?>
 
 <div>
     <p>Últimos usuarios registrados</p>
     <ul>
     <?php foreach ($this->users as $user): ?>
         <li><a href="user/view/<?php echo $user['id']; ?>"><?php echo $user['nombre']; ?></a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+
+<div>
+    <p>Últimos pedidos realizados</p>
+    <ul>
+    <?php foreach ($this->orders as $order): ?>
+        <li><a href="order/view/<?php echo $order['id']; ?>"><?php echo $order['referencia']; ?></a></li>
     <?php endforeach; ?>
     </ul>
 </div>

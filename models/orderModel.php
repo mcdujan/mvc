@@ -5,6 +5,11 @@ class orderModel extends Model {
         parent::__construct();
     }
 
+    public function getOrders() {
+        $user = $this->_db->query('SELECT * FROM pedidos');
+        return $user->fetchall();
+    }
+
     public function getOrderById($id) {
         $order = $this->_db->prepare(
                "SELECT pedidos.referencia, productos.nombre, pedidos_productos.cantidad, (pedidos_productos.cantidad * productos.precio) AS precio
@@ -16,5 +21,13 @@ class orderModel extends Model {
         $order->bindParam(1, $id, PDO::PARAM_INT);
         $order->execute();
         return $order->fetchall(PDO::FETCH_ASSOC);
+    }
+
+    public function getLastOrders() {
+        $user = $this->_db->query("SELECT *
+                                  FROM pedidos
+                                  ORDER BY id DESC
+                                  LIMIT 3"); 
+        return $user->fetchall(PDO::FETCH_ASSOC);
     }
 }

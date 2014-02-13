@@ -11,19 +11,24 @@ class View {
     public function render($view, $item = false) {
         $menu = array(
             array(
-                'id' => 'inicio',
+                'id'    => 'inicio',
                 'title' => 'Inicio',
-                'url' => BASE_URL
+                'url'   => BASE_URL
                 ),
             array(
-                'id' => 'usuarios',
+                'id'    => 'usuarios',
                 'title' => 'Usuarios',
-                'url' => BASE_URL . 'user/'
+                'url'   => BASE_URL . 'user/'
                 ),
             array(
-                'id' => 'productos',
+                'id'    => 'pedidos',
+                'title' => 'Pedidos',
+                'url'   => BASE_URL . 'order/'
+                ),
+            array(
+                'id'    => 'productos',
                 'title' => 'Productos',
-                'url' => BASE_URL . 'product/'
+                'url'   => BASE_URL . 'product/'
                 ),
             );
 

@@ -9,7 +9,9 @@ class orderController extends Controller {
     }
 
     public function index() {
-        //cuerpo
+        $this->_view->orders = $this->_order->getOrders();
+        $this->_view->title = "Lista de pedidos";
+        $this->_view->render('index');
     }
 
     public function view($orderid) {
