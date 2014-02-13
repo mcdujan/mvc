@@ -1,7 +1,7 @@
 <?php if(isset($this->order)  && count($this->order)): ?>
 <table>
     <tr>
-        <th>Referencia <?php echo $this->order[0]['referencia'] ?></th>
+        <th colspan="2">Referencia <?php echo $this->order[0]['referencia'] ?></th>
         <td>
             <a href="<?php echo BASE_URL . 'order/edit/' . $this->order['id']; ?>">Editar</a>
         </td>
@@ -12,7 +12,8 @@
     <tr>
         <th>Producto</th>
         <th>Cantidad</th>
-        <th>Precio</th>
+        <th>Precio Unidad</th>
+        <th>Precio Total</th>
     </tr>
             <?php foreach ($this->order as $order): ?>
     <tr id="cuerpo">
@@ -20,6 +21,7 @@
         <td><?php echo $order['nombre']?></td>  
         <td><?php echo $order['cantidad']?></td>  
         <td><?php echo $order['precio']?></td>  
+        <td><?php echo $order['precio_total']?></td>  
     </tr>
 <?php endforeach; ?>
 </table>
