@@ -1,0 +1,30 @@
+<?php if(isset($this->order)  && count($this->order)): ?>
+<table>
+    <tr>
+        <th>Referencia <?php echo $this->order[0]['referencia'] ?></th>
+        <td>
+            <a href="<?php echo BASE_URL . 'order/edit/' . $this->order['id']; ?>">Editar</a>
+        </td>
+        <td>
+            <a href="<?php echo BASE_URL . 'order/delete/' . $this->order['id']; ?>">Eliminar</a>
+        </td>
+    </tr>
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+    </tr>
+            <?php foreach ($this->order as $order): ?>
+    <tr id="cuerpo">
+
+        <td><?php echo $order['nombre']?></td>  
+        <td><?php echo $order['cantidad']?></td>  
+        <td><?php echo $order['precio']?></td>  
+    </tr>
+<?php endforeach; ?>
+</table>
+<?php else: ?>
+    <p><strong>No hay datos en la base de datos</strong></p>
+<?php endif; ?>
+
+<p><a href="<?php echo BASE_URL . 'order' ?>">&lt;&lt; Volver a la lista de usuarios</a></p>
