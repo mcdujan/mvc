@@ -2,6 +2,9 @@
 
 class Database extends PDO {
 
+    /**
+     * Extension de PDO para nuestra base de datos
+     */
     public function __construct() {
         parent::__construct(
             'mysql:host=' . DB_HOST . 

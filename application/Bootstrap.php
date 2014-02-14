@@ -2,6 +2,10 @@
 
 class Bootstrap {
 
+    /**
+     * Monta el sistema MVC de la web
+     * @param  Request $request
+     */
     public static function run(Request $request) {
 
         $controller     = $request->getController() . 'Controller';

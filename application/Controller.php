@@ -8,8 +8,16 @@ abstract class Controller {
         $this->_view = new View(new Request);
     }
 
+    /**
+     * Index necesario para todos los controladores
+     */
     abstract public function index();
 
+    /**
+     * Carga el modelo asociado al controlador
+     * @param  string $model Modelo que queremos cargar
+     * @return Model Devuelve el modelo solicitado
+     */
     protected function loadModel($model) {
         $model = $model . 'Model';
         $pathModel = ROOT . 'models' . DS . $model . '.php';
@@ -24,6 +32,10 @@ abstract class Controller {
         }
     }
 
+    /**
+     * Redirige a una url 
+     * @param  boolean $path [description]
+     */
     protected function redirect($path = false) {
         if($path) {
             header('Location: ' . BASE_URL . $path);
