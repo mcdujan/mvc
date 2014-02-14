@@ -11,4 +11,6 @@
 - [x] Métodos para editar y añadir nuevos usuarios
 - [x] Crear Controlador, Modelo y Vista de producto
 - [x] Completar el elemento producto
-- [ ] Crear elemento para el indice de la aplicación (indexController, indexModel, y sus vistas)
+- [x] Crear elemento para el indice de la aplicación (indexController, indexModel, y sus vistas)
+- [x] Crear el elemento pedido y todas sus relaciones
+- [x] Crear setencias SQL
