@@ -9,6 +9,9 @@ class userController extends Controller {
         $this->_user = $this->loadModel('user');
     }
 
+    /**
+     * Crea la vista index de usuarios
+     */
     public function index(){
         $this->_view->users     = $this->_user->getUsers();
         $this->_view->userOrder = $this->_user->getOrders();
@@ -16,12 +19,19 @@ class userController extends Controller {
         $this->_view->render('index');
     }
 
+    /**
+     * Crea la vista del usuario en función de su id
+     * @param  int $userid id del usuario
+     */
     public function view($userid) {
         $this->_view->user  = $this->_user->getUserById($userid);
         $this->_view->title = "Vista del usuario";
         $this->_view->render('view');
     }
 
+    /**
+     * Añade un nuevo usuario
+     */
     public function add() {
         if (!empty($_POST) && $_POST['submit'] === 'Nuevo Usuario') {
             $this->_user->addUser();
@@ -33,6 +43,10 @@ class userController extends Controller {
         }
     }
 
+    /**
+     * Permite editar un usuario en función de su id
+     *@param int $userid id del usuario
+     */
     public function edit($userid) {
         if(empty($userid)) {
             $this->redirect('user');
@@ -48,6 +62,10 @@ class userController extends Controller {
         }
     }
 
+    /**
+     * Borra el usuario en función de su id
+     * @param  int $usertid id del usuario
+     */
     public function delete($userid) {
         $this->_user->deleteUser($userid);
         $this->redirect('user');
