@@ -47,4 +47,11 @@ class orderModel extends Model {
                                   LIMIT 3"); 
         return $order->fetchall(PDO::FETCH_ASSOC);
     }
+
+    public function deleteOrder($id) {
+        $order = $this->db_prepare("DELETE pedidos.*, pedidos_productos.* FROM pedidos, pedidos_productos WHERE pedidos.id = ? AND pedidos_productos.id_pedido = ?");
+        $order->bindParam(1, $id, PDO::PARAM_INT);
+        $order->bindParam(2, $id, PDO::PARAM_INT);
+        $order->execute();
+    }
 }
