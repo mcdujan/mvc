@@ -61,6 +61,38 @@ class orderModel extends Model {
         $user->execute();
     }
 
+    /*public function getRef(){
+        $letters="ABCDEFGIJKLMNOPQRSTUVWXYZ";
+        $ref = '';
+        $max = strlen($letters)-1;
+        for($i=0; $i<6; $i++){
+            $str .=$letters[rand($max)];
+        }
+        return $str;
+    }*/
+
+    public function addOrder() {
+        $user = $this->_db->prepare("INSERT INTO 
+                            pedidos (referencia, usuario) 
+                            VALUES 
+                            (:referencia, :usuario)");
+        
+        $letters="ABCDEFGIJKLMNOPQRSTUVWXYZ";
+        $ref = '';
+        $max = strlen($letters)-1;
+        for($i=0; $i<6; $i++){
+            $str .= $letters[rand($max)];
+        }
+        $referencia = $str;
+
+        $datos = filter_input_array(INPUT_POST, $_POST);
+        $user->bindParam(':referencia', $referencia, PDO::PARAM_STR);
+        $user->bindParam(':usuario', $datos['usuario'], PDO::PARAM_INT);
+        $user->execute();
+    }
+
+
+
     public function deleteOrder($id) {
         $order = $this->_db->prepare("DELETE pedidos.*, pedidos_productos.*
                                      FROM pedidos, pedidos_productos 

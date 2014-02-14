@@ -23,6 +23,8 @@ class orderController extends Controller {
     public function add() {
         if (!empty($_POST) && $_POST['submit'] === 'Nuevo Pedido') {
             //$this->redirect('order/addproduct/1');
+            $this->_order->addOrder();
+            $this->redirect('order');
         }
         else {
             $this->_user    = $this->loadModel('user');

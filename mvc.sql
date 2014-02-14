@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-02-2014 a las 16:37:37
+-- Tiempo de generación: 14-02-2014 a las 14:28:31
 -- Versión del servidor: 5.5.35-0ubuntu0.13.10.2
 -- Versión de PHP: 5.5.3-1ubuntu2.1
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `precio`) VALUES
-(1, 'collar', 15),
+(1, 'collar', 5),
 (2, 'reloj', 15),
 (3, 'Movil', 124),
 (4, 'Pulsera oro', 125);
