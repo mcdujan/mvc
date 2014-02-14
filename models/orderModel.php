@@ -61,15 +61,15 @@ class orderModel extends Model {
         $user->execute();
     }
 
-    /*public function getRef(){
-        $letters="ABCDEFGIJKLMNOPQRSTUVWXYZ";
-        $ref = '';
-        $max = strlen($letters)-1;
+    private static function getRef(){
+        $letters ="ABCDEFGIJKLMNOPQRSTUVWXYZ";
+        $ref     = '';
+        $max     = strlen($letters)-1;
         for($i=0; $i<6; $i++){
-            $str .=$letters[rand($max)];
+            $ref .= $letters[rand(0, $max)];
         }
-        return $str;
-    }*/
+        return $ref;
+    }
 
     public function add() {
         $user = $this->_db->prepare("INSERT INTO 
@@ -77,18 +77,13 @@ class orderModel extends Model {
                             VALUES 
                             (:referencia, :usuario)");
         
-        $letters="ABCDEFGIJKLMNOPQRSTUVWXYZ";
-        $ref = '';
-        $max = strlen($letters)-1;
-        for($i=0; $i<6; $i++){
-            $str .= $letters[rand($max)];
-        }
-        $referencia = $str;
+        $referencia = static::getRef();
 
         $datos = filter_input_array(INPUT_POST, $_POST);
         $user->bindParam(':referencia', $referencia, PDO::PARAM_STR);
-        $user->bindParam(':usuario', $datos['id_usuario'], PDO::PARAM_INT);
+        $user->bindParam(':usuario', $datos['usuario'], PDO::PARAM_INT);
         $user->execute();
+        $this->id = $this->_db->lastInsertId();
     }
 
 
