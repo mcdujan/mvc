@@ -10,9 +10,9 @@ class userController extends Controller {
     }
 
     public function index(){
-        $this->_view->users = $this->_user->getUsers();
+        $this->_view->users     = $this->_user->getUsers();
         $this->_view->userOrder = $this->_user->getOrders();
-        $this->_view->title = "Lista de usuarios";
+        $this->_view->title     = "Lista de usuarios";
         $this->_view->render('index');
     }
 

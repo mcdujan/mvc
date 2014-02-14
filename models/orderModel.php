@@ -86,8 +86,6 @@ class orderModel extends Model {
         $this->id = $this->_db->lastInsertId();
     }
 
-
-
     public function deleteOrder($id) {
         $order = $this->_db->prepare("DELETE pedidos.*, pedidos_productos.*
                                      FROM pedidos, pedidos_productos 

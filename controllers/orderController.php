@@ -35,7 +35,6 @@ class orderController extends Controller {
     }
 
     public function addproduct($orderid = 0) {
-
         if(!empty($_POST) && $_POST['submit'] === 'Anadir Producto') {
             $this->_order->addProduct();
             $this->redirect('order/view/' . $_POST['id_pedido']);
