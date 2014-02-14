@@ -4,11 +4,19 @@ class View {
 
     private $_controller;
 
+    /**
+     * Carga el controlador asociado a la vista
+     * @param Request $request
+     */
     public function __construct (Request $request) {
         $this->_controller = $request->getController();
     }
 
-    public function render($view, $item = false) {
+    /**
+     * Carga la vista solicitada
+     * @param  string  $view Vista que queremos cargar
+     */
+    public function render($view) {
         $menu = array(
             array(
                 'id'    => 'inicio',
