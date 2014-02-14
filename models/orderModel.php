@@ -4,12 +4,20 @@ class orderModel extends Model {
     public function __construct () {
         parent::__construct();
     }
-
+    /**
+     * Devuelve todos los pedidos realizados
+     * @return array Datos de los pedidos realizados
+     */
     public function getOrders() {
         $user = $this->_db->query('SELECT * FROM pedidos');
         return $user->fetchall();
     }
 
+    /**
+     * Devuelve un pedido en función de su id
+     * @param  int $id id del pedido
+     * @return array Datos del pedido devuelto de la base de datos
+     */
     public function getOrderById($id) {
         $order = $this->_db->prepare(
                "SELECT 
@@ -29,7 +37,12 @@ class orderModel extends Model {
         $order->execute();
         return $order->fetchall(PDO::FETCH_ASSOC);
     }
-
+    
+    /**
+     * Devuelve los pedidos de un usuario
+     * @param  int $userid id del usuario para el que se quieren ver los pedidos
+     * @return array Pedidos asociados al usuario
+     */
     public function getOrdersByUser($userid) {
         $order = $this->_db->prepare("SELECT usuarios.id as usuario_id, nombre, pedidos.id, referencia 
                                      FROM pedidos, usuarios 
@@ -40,6 +53,10 @@ class orderModel extends Model {
         return $order->fetchall(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Devuelve los ultimos pedidos realizados
+     * @return array Ultimos 3 pedidos creados
+     */
     public function getLastOrders() {
         $order = $this->_db->query("SELECT *
                                   FROM pedidos
@@ -48,6 +65,9 @@ class orderModel extends Model {
         return $order->fetchall(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Añade un nuevo producto a un pedido
+     */
     public function addProduct() {
         $user = $this->_db->prepare("INSERT INTO 
                             pedidos_productos (id_pedido, id_producto, cantidad) 
@@ -61,6 +81,10 @@ class orderModel extends Model {
         $user->execute();
     }
 
+    /**
+     * Crea la referencia aleatoria de un pedidos
+     * @return string Cadena con 6 letras aleatorias
+     */
     private static function getRef(){
         $letters ="ABCDEFGIJKLMNOPQRSTUVWXYZ";
         $ref     = '';
@@ -71,6 +95,9 @@ class orderModel extends Model {
         return $ref;
     }
 
+    /**
+     * Crea un nuevo pedido
+     */
     public function add() {
         $user = $this->_db->prepare("INSERT INTO 
                             pedidos (referencia, id_usuario) 
@@ -86,6 +113,10 @@ class orderModel extends Model {
         $this->id = $this->_db->lastInsertId();
     }
 
+    /**
+     * Elimina un pedido
+     * @param  int $id id del pedido que se quiere eliminar
+     */
     public function deleteOrder($id) {
         $order = $this->_db->prepare("DELETE pedidos.*, pedidos_productos.*
                                      FROM pedidos, pedidos_productos 
