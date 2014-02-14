@@ -49,7 +49,7 @@ class userController extends Controller {
     }
 
     public function delete($userid) {
-        $this->_view->users = $this->_user->deleteUser($userid);
+        $this->_user->deleteUser($userid);
         $this->redirect('user');
     }
 }

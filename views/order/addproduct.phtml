@@ -1,0 +1,27 @@
+<?php if(isset($this->product)  && count($this->product)): ?>
+
+<form id="formulario" action="<?php echo BASE_URL . 'order/addproduct' ?>" method="post">
+    <h3>Nuevo producto</h3>
+    <fieldset>
+        <legend>Pedido</legend>
+        <input type="hidden" name="id_pedido" value="<?php echo $this->orderid ?>">
+        <b>Producto:</b>
+        <select name="id_producto" form="formulario">
+            <?php foreach ($this->product as $product): ?>
+                <option value="<?php echo $product['id'] ?>">
+                    <?php echo $product['nombre'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <br />
+        <b>Cantidad:</b>
+        <input type="text" name="cantidad" value="1" />
+        <br />
+        <input type="submit" name="submit" value="Anadir Producto">
+    </fieldset>
+</form>
+
+<p><a href="<?php echo BASE_URL . 'order' ?>">&lt;&lt; Volver a la lista de pedidos</a></p>
+<?php else: ?>
+    <p><strong>No hay datos en la base de datos</strong></p>
+<?php endif; ?>

@@ -22,18 +22,36 @@ class orderController extends Controller {
 
     public function add() {
         if (!empty($_POST) && $_POST['submit'] === 'Nuevo Pedido') {
-            $this->_product->addProduct();
-            $this->redirect('order');
+            //$this->redirect('order/addproduct/1');
         }
         else {
             $this->_user    = $this->loadModel('user');
-            $this->_product = $this->loadModel('product');
             
             $this->_view->users    = $this->_user->getUsers();
-            $this->_view->products = $this->_product->getProducts();
             $this->_view->title    = "Nuevo pedido";
             $this->_view->render('add');
         }
+    }
+
+    public function addproduct($orderid = 0) {
+
+        if(!empty($_POST) && $_POST['submit'] === 'Anadir Producto') {
+            $this->_order->addProduct();
+            $this->redirect('order/view/' . $_POST['id_pedido']);
+        }
+        else {
+        $this->_product = $this->loadModel('product');
+
+        $this->_view->orderid = $orderid;
+        $this->_view->product = $this->_product->getProducts();
+        $this->_view->render('addproduct');
+        }
+   
+    }
+
+    public function delete($id) {
+        $this->_order->deleteOrder($id);
+        $this->redirect('order');
     }
 
     public function userorders($userid) {

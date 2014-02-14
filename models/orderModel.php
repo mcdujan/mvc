@@ -48,8 +48,24 @@ class orderModel extends Model {
         return $order->fetchall(PDO::FETCH_ASSOC);
     }
 
+    public function addProduct() {
+        $user = $this->_db->prepare("INSERT INTO 
+                            pedidos_productos (id_pedido, id_producto, cantidad) 
+                            VALUES 
+                            (:id_pedido, :id_producto, :cantidad)");
+
+        $datos = filter_input_array(INPUT_POST, $_POST);
+        $user->bindParam(':id_pedido', $datos['id_pedido'], PDO::PARAM_INT);
+        $user->bindParam(':id_producto', $datos['id_producto'], PDO::PARAM_INT);
+        $user->bindParam(':cantidad', $datos['cantidad'], PDO::PARAM_INT);
+        $user->execute();
+    }
+
     public function deleteOrder($id) {
-        $order = $this->db_prepare("DELETE pedidos.*, pedidos_productos.* FROM pedidos, pedidos_productos WHERE pedidos.id = ? AND pedidos_productos.id_pedido = ?");
+        $order = $this->_db->prepare("DELETE pedidos.*, pedidos_productos.*
+                                     FROM pedidos, pedidos_productos 
+                                     WHERE pedidos.id = ? 
+                                     AND pedidos_productos.id_pedido = ?");
         $order->bindParam(1, $id, PDO::PARAM_INT);
         $order->bindParam(2, $id, PDO::PARAM_INT);
         $order->execute();
