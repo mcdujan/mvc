@@ -71,9 +71,9 @@ class orderModel extends Model {
         return $str;
     }*/
 
-    public function addOrder() {
+    public function add() {
         $user = $this->_db->prepare("INSERT INTO 
-                            pedidos (referencia, usuario) 
+                            pedidos (referencia, id_usuario) 
                             VALUES 
                             (:referencia, :usuario)");
         
@@ -87,7 +87,7 @@ class orderModel extends Model {
 
         $datos = filter_input_array(INPUT_POST, $_POST);
         $user->bindParam(':referencia', $referencia, PDO::PARAM_STR);
-        $user->bindParam(':usuario', $datos['usuario'], PDO::PARAM_INT);
+        $user->bindParam(':usuario', $datos['id_usuario'], PDO::PARAM_INT);
         $user->execute();
     }
 
